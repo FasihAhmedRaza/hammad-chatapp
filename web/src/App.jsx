@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form ,Toast} from 'react-bootstrap';
 import { useEffect, useState } from "react"
 const axios = require('axios');
 
@@ -47,16 +47,16 @@ function App() {
   return (
     <div>
 
-      <Form onSubmit={sendMessage}>
+      <Form onSubmit={sendMessage} required>
         <Form.Group
           style={{
             display: "flex",
             justifyContent: "space-between"
-          }} className="mb-3" controlId="formBasicEmail">
+          }} className="mb-3" controlId="formBasicEmail" required>
 
           <Form.Control
             onChange={(e) => { setText(e.target.value) }}
-            type="text"
+            type="text" required
             placeholder="Enter your message"
           />
           <Button variant="primary" type="submit">
@@ -76,7 +76,19 @@ function App() {
             display: "flex",
             justifyContent: (eachMessage.sender === "user") ? "flex-end" : "flex-start"
           }}>
-            <div>{eachMessage.text}</div>
+
+
+<div>
+              <Toast className='user_data'>
+                <Toast.Header>
+                  {/* <img src="holder.js/20x20?text=%20"  alt="" /> */}
+                  <strong className="me-auto"></strong>
+                  <small>just now</small>
+                </Toast.Header>
+                <Toast.Body variant="success">{eachMessage.text}</Toast.Body>
+              </Toast>
+            </div>
+            {/* <div>{eachMessage.text}</div> */}
           </div>
         ))}
 
