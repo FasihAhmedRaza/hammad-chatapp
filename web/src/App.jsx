@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Button, Form ,Toast} from 'react-bootstrap';
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 const axios = require('axios');
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       return [{ sender: "user", text: text }, ...prev];
     });
 
-    axios.post(`https://dialogflow-react.herokuapp.com/talktochatbot`, {
+    axios.post(`http://localhost:5000/talktochatbot`, {
       text: text
     })
       .then((response) => {
