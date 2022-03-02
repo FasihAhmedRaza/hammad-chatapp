@@ -6,7 +6,7 @@ const sessionClient = new dialogflow.SessionsClient();
 
 
 const app = express();
-app.use(cors())
+app.use(cors());
 app.use(express.json())
 
 
