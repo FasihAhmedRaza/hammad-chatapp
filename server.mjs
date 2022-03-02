@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 app.post("/talktochatbot", async (req, res) => {
 
-    const projectId = "app-first-rwie"
+    const projectId = "copy-sewi"
     const sessionId = "session123"
     const query = req.body.text;
     const languageCode = "en-US"
